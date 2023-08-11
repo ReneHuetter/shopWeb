@@ -63,5 +63,13 @@ class User extends Database
             return false;
         }
     }
+
+    public function logOut()
+    {
+        unset($_SESSION['loggedin']);
+        unset($_SESSION['userid']);
+        echo "Logged out successfully";
+        header("Refresh:3;url=index.php");
+    }
 }
 ?>
