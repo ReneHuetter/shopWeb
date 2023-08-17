@@ -11,3 +11,18 @@ include 'class/userClass.php';
     <input type="password" name="password_confirm" placeholder="password confirm" required>
     <button type="submit" name="signupbtn">signup</button>
 </form>
+
+<?php
+if (isset($_POST['signupbtn'])) {
+    if (sha1($_POST['password'])) {
+        $user = new User();
+        $user->signup($_POST['username'], $_POST['email'], sha1($_POST['password']));
+    } else {
+        echo 'Passwords do not match';
+    }
+}
+?>
+
+<?php
+require 'inc/footer.php';
+?>
