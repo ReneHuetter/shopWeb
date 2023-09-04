@@ -1,5 +1,6 @@
 <?php
 require 'inc/head.php';
+require 'inc/nav.php';
 include 'class/userClass.php';
 ?>
 

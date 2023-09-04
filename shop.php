@@ -1,8 +1,8 @@
 <?php
 require 'inc/head.php';
 require 'inc/nav.php';
-include 'class/';
-include 'class/';
+include 'class/produkt.php';
+include 'class/cartClass.php';
 ?>
 <h1>Shop</h1>
 <div>
