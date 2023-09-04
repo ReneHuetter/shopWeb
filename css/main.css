@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html, body{
+    margin: 0px;
+    background: #303030;
+    font-family: 'Roboto', sans-serif;
+    --bg-dark:#202020;
+    --bg-light:#303030;
+    --color-white:#ffffff;
+    --color-white-dark: #dddddd;
+    --color-grey:#777777;
+}
+
+.formbox{
+    display: block;
+    width: 50%;
+    height: auto;
+    min-height: 60vh;
+    background-color: var(--bg-dark);
+    margin: 50px auto;
+    display: grid;
+    align-content: center;
+}
+
+.formbox input{
+    display: block;
+    width: 50%;
+    height: 3vh;
+    margin: 20px auto;
+}
+
+.formbox button{
+    display: block;
+    width: 20%;
+    height: 5vh;
+    margin: 20% auto;
+}
+
+.formbox h1{
+    text-align: center;
+    color: var(--color-white-dark);
+}
+
+.shopcontent{
+    width: 75%;
+    height: auto;
+    min-height: 93vh;
+    margin: 20px auto;
+    background: var(--bg-dark);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+}
+
+h1{
+    text-align: center;
+    color: var(--color-white);
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: var(--color-white);
+    background: var(--bg-dark);
+}
