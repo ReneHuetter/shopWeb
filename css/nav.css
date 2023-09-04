@@ -1,0 +1,59 @@
+.nav{
+    width: 100%;
+    height: 7vh;
+    background: var(--bg-dark);
+    display: grid;
+    grid-template-columns: 15% 35% 35% 15%;
+    grid-template-areas: "tlogo mainlinks mainlinks userlinks";
+}
+
+a{
+    color: var(--color-white-dark);
+    text-decoration: none;
+}
+
+.textLogo{
+    grid-area: tlogo;
+    text-align: center;
+}
+
+.textLogo a{
+    font-size: 26px;
+    line-height: 7vh;
+}
+
+.mainlinks{
+    grid-area: mainlinks;
+    text-align: center;
+}
+
+.mainlinks a{
+    display: inline-block;
+    font-size: 16px;
+    line-height: 7vh;
+    height: 7vh;
+    padding: 0px 20px;
+}
+
+.mainlinks a:hover{
+    background-color: var(--color-grey);
+    color: var(--color-white);
+}
+
+.userlinks{
+    grid-area: userlinks;
+    text-align: center;
+}
+
+.userlinks a{
+    display: inline-block;
+    font-size: 16px;
+    line-height: 7vh;
+    height: 7vh;
+    padding: 0px 20px;
+}
+
+.userlinks a:hover{
+    background-color: var(--color-grey);
+    color: var(--color-white);
+}
