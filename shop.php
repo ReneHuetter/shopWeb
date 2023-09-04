@@ -12,7 +12,7 @@ include 'class/';
 
     if (isset($_POST['addbtn'])) {
         $cart = new Cart();
-        $cart->addtoCart();
+        $cart->addtoCart($_POST['productid'], $_SESSION['userid'], $_POST['anzahl']);
     }
     ?>
 </div>
