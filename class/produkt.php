@@ -4,7 +4,7 @@ require_once __DIR__ .'/dbClass.php';
 class Product extends Database {
 
     public function loadAllProducts() {
-        $stmt = $this->conn()->prepare("SELECT * FROM produkt");
+        $stmt = $this->connect()->prepare("SELECT * FROM produkt");
         $stmt->execute();
         while($result = $stmt->fetch()) {
             echo '<div class="product">
@@ -22,14 +22,14 @@ class Product extends Database {
     }
 
     public function addProduct ($name, $price, $img, $desrcipton) {
-        $stmt = $this->conn()->prepare("INSERT INTO produkt (pname, price, desrcipton, img) VALUES (?,?,?,?)");
+        $stmt = $this->connect()->prepare("INSERT INTO produkt (pname, price, desrcipton, img) VALUES (?,?,?,?)");
         $stmt->execute([$name, $price, $desrcipton, $img]);
         echo 'Product inserted successfully';
         return;
     }
 
     public function removeProduct ($productId) {
-        $stmt = $this->conn()->prepare("DELETE FROM produkt WHERE id = ?");
+        $stmt = $this->connect()->prepare("DELETE FROM produkt WHERE id = ?");
         $stmt->execute([$productId]);
         return;
     }

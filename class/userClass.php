@@ -5,7 +5,7 @@ class User extends Database
 {
     public function login($username, $password)
     {
-        $stmt = $this->conn()->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+        $stmt = $this->connect()->prepare("SELECT * FROM users WHERE username = ? AND passwort = ?");
         $stmt->execute([$username, $password]);
         $result = $stmt->fetchAll();
 
@@ -35,7 +35,7 @@ class User extends Database
             echo 'Email not available';
             return false;
         }
-        $stmt = $this->conn()->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+        $stmt = $this->connect()->prepare("INSERT INTO users (username, email, passwort) VALUES (?, ?, ?)");
         $stmt->execute([$username, $password, $email]);
         echo 'User successfully signed up';
         header("Refresh:3;url=index.php");
@@ -44,7 +44,7 @@ class User extends Database
 
     private function isUsernameAvailable($username) 
     {
-        $stmt = $this->conn()->prepare("SELECT username FROM users WHERE username = ?");
+        $stmt = $this->connect()->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute([$username]);
         if ($stmt->rowCount() == 0) {
             return true;
@@ -55,7 +55,7 @@ class User extends Database
 
     private function isEmailAvailable($email)
     {
-        $stmt = $this->conn()->prepare("SELECT email FROM users WHERE email = ?");
+        $stmt = $this->connect()->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
         if ($stmt->rowCount() == 0) {
             return true;

@@ -7,11 +7,11 @@ class Database
     private $dbpass = '';
     private $dbhost = 'localhost';    
 
-    function conn () 
+    function connect () 
     {
         try 
         {
-            $dsn = 'mysql:host=' . $this->dbhost . '; database=' . $this->database;
+            $dsn = 'mysql:host=' . $this->dbhost . ';database=' . $this->database;
             $pdo = new PDO($dsn, $this->dbuser, $this->dbpass);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             return $pdo;

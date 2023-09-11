@@ -4,7 +4,7 @@ require_once __DIR__ . '/dbClass.php';
 class Cart extends Database {
 
     public function loadCart() {
-        $stmt = $this->conn()->prepare("SELECT * FROM cart INNER JOIN produkt ON cart.product_id = produkt.id");
+        $stmt = $this->connect()->prepare("SELECT * FROM cart INNER JOIN produkt ON cart.product_id = produkt.id");
         $stmt->execute();
         while ($result = $stmt->fetch()) {
             echo '<div>
@@ -23,13 +23,13 @@ class Cart extends Database {
     }
 
     public function addtoCart ($productid, $userid, $anzahl) {
-        $stmt = $this->conn()->prepare("INSERT INTO cart (product_id, user_id, anzahl) VALUES (?,?,?)");
+        $stmt = $this->connect()->prepare("INSERT INTO cart (product_id, user_id, anzahl) VALUES (?,?,?)");
         $stmt->execute([$productid,$userid,$anzahl]);
         return;
     }
 
     public function removoCart ($productid) {
-        $stmt = $this->conn()->prepare("DELETE FROM cart WHERE product_id = ?");
+        $stmt = $this->connect()->prepare("DELETE FROM cart WHERE product_id = ?");
         $stmt->execute([$productid]);
         echo 'Delete from cart successfully';
         header("Refresh:3; url='cart.php?'");
